@@ -75,12 +75,12 @@ class Dataset(object):
         return [s_id] + [self._vocab.get_id(word) for word in line.strip().split()] + [s_id]
 
     def _parse_file(self, file_name):
-        print("Processing file: %s" % file_name)
+        #print("Processing file: %s" % file_name)
         with codecs.open(file_name, "r", "utf-8") as f:
             lines = [line.strip() for line in f]
             if not self._deterministic:
                 random.shuffle(lines)
-            print("Finished processing!")
+            #print("Finished processing!")
             for line in lines:
                 yield self._parse_sentence(line)
 
